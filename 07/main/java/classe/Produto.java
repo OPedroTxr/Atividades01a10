@@ -1,0 +1,100 @@
+package classe;
+
+import java.util.Objects;
+
+public class Produto {
+
+    private String nomeProd;
+    private String id;
+    private Double preco;
+
+    
+
+    public Produto(String nomeProd, String id, double preco) {
+        this.nomeProd = nomeProd;
+        this.id = id;
+        this.preco = preco;
+       
+    }
+
+    public Produto() {
+        this.nomeProd = "";
+        this.id = "";
+        this.preco = 0.0;
+       
+
+    }
+
+   
+
+    public void copy(Produto outro) {
+        this.nomeProd = outro.nomeProd;
+        this.id = outro.id;
+        this.preco = outro.preco;
+    }
+
+    public void imprimir() {
+        System.out.println(toString());
+    }
+
+    public String getNomeProd() {
+        return nomeProd;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+
+    public void setPreco(Double preco) {
+        this.preco = preco;
+    }
+
+    public Double getPreco() {
+        return preco;
+    }
+
+    public void setNomeProd(String nomeProd) {
+        this.nomeProd = nomeProd;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Produto{" + "nomeProd=" + nomeProd + ", id=" + id + ", preco=" + preco + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 23 * hash + Objects.hashCode(this.nomeProd);
+        hash = 23 * hash + Objects.hashCode(this.id);
+        hash = 23 * hash + Objects.hashCode(this.preco);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Produto other = (Produto) obj;
+        if (!Objects.equals(this.nomeProd, other.nomeProd)) {
+            return false;
+        }
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return Objects.equals(this.preco, other.preco);
+    }
+    
+}
